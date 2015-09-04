@@ -4,89 +4,102 @@
 <meta charset="UTF-8">
 <title>This site is a test</title>
 <link rel="stylesheet" href="style.css">
-<script type='text/javascript' charset='utf-8' src='jquery.js'></script>
-<script type='text/javascript' charset='utf-8' src='popbox.js'></script>
-<link rel='stylesheet' href='popbox.css' type='text/css'>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+});
+</script>
 </head>
 <body>
 <header>
-<div id="breadcrumb">
+  <div id="breadcrumb">
     <ul class="crumbs">
-        <li class="#"><a href="#">Home  ></a></li>
-        <li><a href="#">Search  ></a></li>
-        <li><a href="#" class="current">U.S. Military Collection</a></li>
+      <li class="#"><a href="#">Home  ></a></li>
+      <li><a href="#">Search  ></a></li>
+      <li><a href="#" class="current">U.S. Military Collection</a></li>
     </ul>
-</div>
-<div class="title-container">    
-<h1>U.S. Military Collection</h1>
-    </div>   
+  </div>
+  <div class="title-container">
+    <h1>U.S. Military Collection</h1>
+  </div>
 </header>
 <div class="wrapper">
-        <div class="left-module">
-        <h2>World conflicts. Personal stories.</h2>
-        	<p>Throughout history, millions of courageous men and women have served and protected their country in times of conflict. Were your ancestors among them? It’s never been easier to find out on Ancestry.com, the world’s largest online collection of family history resources, including millions of military records spanning from before the Revolutionary War all the way up to Vietnam.</p>
-            <img src="/images/home-main.png" id="home-image">
-            <p>Search through enlightening historical documents from every major U.S. war from the American Revolution through Vietnam, including draft registration cards, veterans’ gravesites, soldier pension indexes, enlistment records, muster rolls and much more.</p>
-            <a href="#" class="search-button">Search All Military Records</a>
-        </div>
-        <div class="right-module">
-            <div class="block-one">
-                <h3>Featured Collections</h3>
-                <a href="#">U.S. World War II Army Enlistment Records</a></br>
-                <a href="#">U.S. Civil War Soldiers, 1861–1865</a></br>
-                <a href="#">WWII U.S. Navy Muster Rolls, 1938–1949</a></br>
-                <a href="#">U.S. World War II Draft Registration Cards, 1942</a></br>
-                <a href="#">World War I Draft Registration Cards</a></br>
-                <a hidden="#">U.S. Marine Corp Muster Rolls, 1798–1958</a></br>
-                <a href="#" class="grey-button clearfix">See All Collections</a></br>
-            </div>
-            <div class="block-two">
-                <h3>Let Us Help You Discover Your Story</h3>
-                    <p>Begin your free family tree with a few simple facts. We’ll help you discover a lot more. Start your tree by subscribing today for a free trial.</p>
-                <div class='popbox'> 
-                    	<a href="#" class="grey-button open" id="subscribe">Subscribe Today</a>
-                 <div class='collapse'>
-                    <div class='box'>
-                      <div class='arrow'></div>
-                      <div class='arrow-border'></div>
-
-                      Content in PopBox goes here :)
-
-                      <a href="#" class="close">X</a>
-                    </div>
-                  </div>
-                </div>    
-            </div>
-        </div>
+  <div class="left-module">
+    <h2>World conflicts. Personal stories.</h2>
+    <p>Throughout history, millions of courageous men and women have served and protected their country in times of conflict. Were your ancestors among them? It’s never been easier to find out on Ancestry.com, the world’s largest online collection of family history resources, including millions of military records spanning from before the Revolutionary War all the way up to Vietnam.</p>
+    <img src="/images/home-main.png" id="home-image">
+    <p>Search through enlightening historical documents from every major U.S. war from the American Revolution through Vietnam, including draft registration cards, veterans’ gravesites, soldier pension indexes, enlistment records, muster rolls and much more.</p>
+    <a href="#" class="search-button">Search All Military Records</a> </div>
+  <div class="right-module">
+    <div class="block-one">
+      <h3>Featured Collections</h3>
+      <a href="#">U.S. World War II Army Enlistment Records</a></br>
+      <a href="#">U.S. Civil War Soldiers, 1861–1865</a></br>
+      <a href="#">WWII U.S. Navy Muster Rolls, 1938–1949</a></br>
+      <a href="#">U.S. World War II Draft Registration Cards, 1942</a></br>
+      <a href="#">World War I Draft Registration Cards</a></br>
+      <a hidden="#">U.S. Marine Corp Muster Rolls, 1798–1958</a></br>
+      <a href="#" class="grey-button clearfix">See All Collections</a></br>
+    </div>
+    <div class="block-two">
+      <h3>Let Us Help You Discover Your Story</h3>
+      <p>Begin your free family tree with a few simple facts. We’ll help you discover a lot more. Start your tree by subscribing today for a free trial.</p>
+      <a class="btn" data-popup-open="popup-1" href="#">Subscribe Today</a>
+      <div class="popup" data-popup="popup-1">
+        <div class="popup-inner">
+          <h2>Subscribe Today</h2>
+          <form action="example.htm" method="post">
+            <input type="hidden" name="user_id" value="ATW6DTN61AK1NA7H81P7">
+            <input type="hidden" name="form_id" value="1">
+            <fieldset>
+            <label><span>Your first name</br>
+              </span>
+              <input name="name" type="text" pattern="[a-zA-Z -._]{4,99}" required="" autofocus>
+            </label>
+            <label><span>Your last name</br>
+              </span>
+              <input name="name" type="text" pattern="[a-zA-Z -._]{4,99}" required="" autofocus>
+            </label>
+            <label><span>Your Email</br>
+              </span>
+              <input name="email" type="email" placeholder="example@gmail.com" required="">
+            </label>
+            <div class="clearfix"></div>
+            <input type="submit" value="Get Started" class="submitBtn">
+            <input name="redirect" type="hidden" value="example.htm">
+            <p class="form-para">By creating an account, you agree to <a href="#">Ancestory Terms and Conditions</a> and understand that your information will be used in accordance with our <a href="#">Privacy Statement</a>, including that we will send you emails about our service and special offers.</p>
+          </form>
+          </fieldset>
+          <a class="popup-close" data-popup-close="popup-1" href="#">x</a> </div>
+      </div>
+    </div>
+  </div>
 </div>
-<footer class="clearfix"> 
-<div class="copy-right">
+<footer class="clearfix">
+  <div class="copy-right">
     <ul class="foot-nav">
-        <li class="copy-text">&copy;1997-2015 Ancestry</li>
-        <li><a href="#">Corporate Information</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms and Conditions</a></li>
-        <li><a href="#">Site Map</a></li>
-    </ul>    
-</div>
-<div class="foot-menu">
-</div>
+      <li class="copy-text">&copy;1997-2015 Ancestry</li>
+      <li><a href="#">Corporate Information</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms and Conditions</a></li>
+      <li><a href="#">Site Map</a></li>
+    </ul>
+  </div>
 </footer>
-<script type='text/javascript'>
-           $(document).ready(function(){
-             $('.popbox').popbox();
-           });
-        </script>
-        <script type='text/javascript'>
-           $(document).ready(function(){
-             $('.popbox').popbox({
-               'open'          : '.open',
-               'box'           : '.box',
-               'arrow'         : '.arrow',
-               'arrow_border'  : '.arrow_border',
-               'close'         : '.close'
-              });
-           });
-        </script>    
 </body>
 </html>
